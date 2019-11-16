@@ -1,0 +1,10 @@
+[Unit]
+Description=Load the USB Modem
+After=network.target
+
+[Service]
+ExecStart="/usr/local/bin/usbmodem.sh"
+User=root
+
+[Install]
+WantedBy=multi-user.target
