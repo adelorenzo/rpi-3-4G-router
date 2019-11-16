@@ -1,0 +1,16 @@
+#!/bin/bash
+name=$1
+
+if [ "$name" = "on" ]; then
+	wvdial >/dev/null 2>&1 &
+	echo "The Internet is ON!!"
+fi
+if [ "$name" = "off" ]; then
+	if [ -f "/var/run/ppp0.pid" ]; then
+	killall -15 wvdial
+	killall -15 pppd
+	echo "The Internet is OFF!"
+	else
+	echo "The Internet is OFF!"
+	fi
+fi
