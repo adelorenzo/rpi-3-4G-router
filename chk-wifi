@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while true
+do
+
+wifi_state=`wpa_cli -i wlan0 status | grep wpa_state | awk -F= '{print $2}'`
+
+if [ "$wifi_state" = "COMPLETED" ]; then
+	switch_connect off
+else
+	switch_connect on
+fi
+
+sleep 3
+done
