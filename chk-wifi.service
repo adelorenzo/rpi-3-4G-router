@@ -1,0 +1,10 @@
+[Unit]
+Description=Switch the Internet if WiFi is no presente
+After=network.target
+
+[Service]
+ExecStart="/usr/local/bin/chk-wifi &"
+User=root
+
+[Install]
+WantedBy=multi-user.target
